@@ -5,6 +5,14 @@ import { $http } from '@escook/request-miniprogram'
 
 uni.$http = $http
 
+// 封装的展示消息提示的方法
+uni.$showMsg = function (title = '数据加载失败!',duration = 1500) {
+	uni.showToast({
+		title,
+		duration,
+		icon:'none'
+	})
+}
 // 配置请求跟路径
 $http.baseUrl = 'https://www.uinav.com'
 
