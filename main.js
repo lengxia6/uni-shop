@@ -14,7 +14,9 @@ uni.$showMsg = function (title = '数据加载失败!',duration = 1500) {
 	})
 }
 // 配置请求跟路径
-$http.baseUrl = 'https://www.uinav.com'
+// $http.baseUrl = 'https://www.uinav.com'
+$http.baseUrl = 'https://api-hmugo-web.itheima.net'
+
 
 // 请求前做的一些事情
 $http.beforeRequest = function (options) {
