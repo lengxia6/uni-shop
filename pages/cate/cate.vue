@@ -1,5 +1,9 @@
 <template>
 	<view>
+
+		 <!-- 使用 自定义的搜索组件 -->
+		<my-search @click="gotoSearch"></my-search>
+
 		<view class="scroll-view-container">
 			<scroll-view class="left-scroll-view" scroll-y :style="{height: wh + 'px'}">
 				<block v-for="(item, i) in cateList" :key="i">
@@ -34,6 +38,7 @@
 
 <script>
 	export default {
+
 		data() {
 			return {
 				wh: 0,
@@ -46,7 +51,7 @@
 		},
 		onLoad() {
 			const sysInfo = uni.getSystemInfoSync()
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList()
 		},
 		methods: {
@@ -70,6 +75,12 @@
 			gotoGoodsList(item3) {
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
+				})
+			},
+			
+			gotoSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
 				})
 			}
 		}
