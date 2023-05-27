@@ -56,7 +56,10 @@
 				this.inputValue = +val;
 			},
 			inputValue(newVal, oldVal) {
-				if (+newVal !== +oldVal) {
+				// if (+newVal !== +oldVal) {
+				// 	this.$emit("change", newVal);
+				// }
+				if (+newVal !== +oldVal && Number(newVal) && String(newVal).indexOf('.') === -1) {
 					this.$emit("change", newVal);
 				}
 			}
@@ -101,9 +104,13 @@
 				return scale;
 			},
 			_onBlur(event) {
-				let value = event.detail.value;
+				// let value = event.detail.value;
+				// 修改后的代码
+				let value = parseInt(event.detail.value);
 				if (!value) {
 					// this.inputValue = 0;
+					// 修改后的代码
+					this.inputValue = 1
 					return;
 				}
 				value = +value;
